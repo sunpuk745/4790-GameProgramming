@@ -18,9 +18,9 @@ public class PlayerController : MonoBehaviour
         //Kittipat Sangka 633040479-0
     }
 
-    private void Update() 
+    private void FixedUpdate() 
     {
-        transform.position += new Vector3(moveInput, 0, 0) * Time.deltaTime * moveSpeed;
+        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
     }
 
     public void ChangeRed()

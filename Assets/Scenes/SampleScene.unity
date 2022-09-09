@@ -3049,11 +3049,15 @@ PrefabInstance:
       objectReference: {fileID: 6200000, guid: c8b3f492ea5d07f4fa90f60619ce8dbb, type: 2}
     - target: {fileID: 7417093108324539494, guid: a48ee2eab84585641aec0820e3b96b65, type: 3}
       propertyPath: m_Interpolate
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7417093108324539494, guid: a48ee2eab84585641aec0820e3b96b65, type: 3}
       propertyPath: m_GravityScale
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417093108324539494, guid: a48ee2eab84585641aec0820e3b96b65, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417093108324539494, guid: a48ee2eab84585641aec0820e3b96b65, type: 3}
       propertyPath: m_CollisionDetection
