@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     private float moveInput;
     public float moveSpeed = 10f;
     public float jumpForce = 5f;
-    public SpriteRenderer playerSprite;
 
     void Start()
     {
@@ -21,24 +20,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate() 
     {
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
-    }
-
-    public void ChangeRed()
-    {
-        playerSprite = GetComponent<SpriteRenderer>();
-        playerSprite.color = Color.red;
-    }
-
-    public void ChangeGreen()
-    {
-        playerSprite = GetComponent<SpriteRenderer>();
-        playerSprite.color = Color.green;
-    }
-
-    public void ChangeBlue()
-    {
-        playerSprite = GetComponent<SpriteRenderer>();
-        playerSprite.color = Color.blue;
     }
 
     private void OnJump(InputValue value)

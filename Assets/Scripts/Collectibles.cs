@@ -13,13 +13,20 @@ public class Collectibles : MonoBehaviour
     }
 
     CollectibleType _collectibletype = CollectibleType.Random;
+
+    private Transform player;
     private int randomNum;
+
     public SpriteRenderer sprite;
+    public SpriteRenderer playerSprite;
+    
     [SerializeField] CollectibleType collectibleType;
     [SerializeField] private Sprite[] sprites;
 
     private void Start() 
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerSprite = player.GetComponent<SpriteRenderer>();
         StartCoroutine(RandomCrystal());
     }
 
@@ -43,39 +50,34 @@ public class Collectibles : MonoBehaviour
         switch (collectibleType)
         {
             case CollectibleType.Red:
-            ChangeColor.ChangeRed();
-            Destroy(this.gameObject);
+            playerSprite.color = Color.red;
             //Debug.Log("Picked up Red Crystal!");
             break;
             case CollectibleType.Green:
-            ChangeColor.ChangeGreen();
-            Destroy(this.gameObject);
+            playerSprite.color = Color.green;
             //Debug.Log("Picked up Green Crystal!");
             break;
             case CollectibleType.Blue:
-            ChangeColor.ChangeBlue();
-            Destroy(this.gameObject);
+            playerSprite.color = Color.blue;
             //Debug.Log("Picked up Blue Crystal!");
             break;
             case CollectibleType.Random:
             if (randomNum == 1)
             {
-                ChangeColor.ChangeRed();
-                Destroy(this.gameObject);
+                playerSprite.color = Color.red;
             }
             else if (randomNum == 2)
             {
-                ChangeColor.ChangeGreen();
-                Destroy(this.gameObject);
+                playerSprite.color = Color.green;
             }
             else if (randomNum == 3)
             {
-                ChangeColor.ChangeBlue();
-                Destroy(this.gameObject);
+                playerSprite.color = Color.blue;
             }
             break;
             default:
             break;
         }
+        Destroy(gameObject);
     }
 }
