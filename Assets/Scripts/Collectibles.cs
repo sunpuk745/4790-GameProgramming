@@ -17,7 +17,7 @@ public class Collectibles : MonoBehaviour
     private Transform player;
     private int randomNum;
 
-    public SpriteRenderer sprite;
+    public SpriteRenderer collectableSprite;
     public SpriteRenderer playerSprite;
     
     [SerializeField] CollectibleType collectibleType;
@@ -27,20 +27,25 @@ public class Collectibles : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerSprite = player.GetComponent<SpriteRenderer>();
-        StartCoroutine(RandomCrystal());
+        collectableSprite = GetComponent<SpriteRenderer>();
+        if (gameObject.activeSelf)
+        {
+            StartCoroutine(RandomCrystal());
+        }
     }
 
     IEnumerator RandomCrystal()
     {
-        GetComponent<SpriteRenderer>().sprite = sprites[0];
+        collectableSprite.sprite = sprites[0];
         yield return new WaitForSeconds(1f);
         if (_collectibletype == CollectibleType.Random)
         {
             randomNum = Random.Range (1, sprites.Length);
             //Debug.Log(randomNum);
-            GetComponent<SpriteRenderer>().sprite = sprites[randomNum];
+            collectableSprite.sprite = sprites[randomNum];
         }
         yield return new WaitForSeconds(1f);
+        //Debug.Log("GameObject is Active!");
         StartCoroutine(RandomCrystal());
     }
 
