@@ -22,7 +22,7 @@ public class Collectibles : MonoBehaviour
     
     [SerializeField] CollectibleType collectibleType;
     [SerializeField] private Sprite[] sprites;
-
+    
     private void Start() 
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -46,7 +46,6 @@ public class Collectibles : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        PlayerController ChangeColor = other.GetComponent<PlayerController>();
         switch (collectibleType)
         {
             case CollectibleType.Red:
