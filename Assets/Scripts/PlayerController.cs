@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 10f;
     public float jumpForce = 5f;
     //public float rememberLastJumpTime = 0.2f;
-    public float coyoteTime = 0.2f;
+    public float coyoteTime = 0.15f;
 
     void Start()
     {

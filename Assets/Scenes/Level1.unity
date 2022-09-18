@@ -3551,7 +3551,7 @@ MonoBehaviour:
   playerHealth: 1
   moveSpeed: 5
   jumpForce: 25
-  coyoteTime: 0.2
+  coyoteTime: 0.15
 --- !u!1 &7417093106863741167
 GameObject:
   m_ObjectHideFlags: 0
