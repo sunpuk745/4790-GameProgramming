@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class Collectibles : MonoBehaviour
 {
-    public enum CollectibleType
-    {
-        Red,
-        Green,
-        Blue,
-        Random,
-    }
+    [SerializeField] private SOCollectibles collectibleObject;
 
     CollectibleType _collectibletype = CollectibleType.Random;
 
@@ -20,11 +14,12 @@ public class Collectibles : MonoBehaviour
     public SpriteRenderer collectableSprite;
     public SpriteRenderer playerSprite;
     
-    [SerializeField] CollectibleType collectibleType;
     [SerializeField] private Sprite[] sprites;
     
     private void Start() 
     {
+        //Debug.Log(collectibleObject.GetCollectibleType());
+        //Debug.Log(collectibleObject.GetCollectible());
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerSprite = player.GetComponent<SpriteRenderer>();
         collectableSprite = GetComponent<SpriteRenderer>();
@@ -51,7 +46,7 @@ public class Collectibles : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        switch (collectibleType)
+        switch (collectibleObject.GetCollectibleType())
         {
             case CollectibleType.Red:
             playerSprite.color = Color.red;

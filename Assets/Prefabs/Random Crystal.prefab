@@ -124,7 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7d874cd0b18f145a55508718eacb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  collectibleObject: {fileID: 11400000, guid: 71048622db2aae34b8f04647a44af042, type: 2}
+  collectableSprite: {fileID: 0}
+  playerSprite: {fileID: 0}
   collectibleType: 3
   sprites:
   - {fileID: -581055798, guid: a796b48153774414b8a72d10daa4ff50, type: 3}

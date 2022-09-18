@@ -98,7 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7d874cd0b18f145a55508718eacb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  collectibleObject: {fileID: 11400000, guid: 2800b0d0f9616ec4682a6db141288518, type: 2}
+  collectableSprite: {fileID: 0}
+  playerSprite: {fileID: 0}
   collectibleType: 1
   sprites:
   - {fileID: -1992211794, guid: a796b48153774414b8a72d10daa4ff50, type: 3}
