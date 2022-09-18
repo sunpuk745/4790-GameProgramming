@@ -11,16 +11,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheckPoint;
 	[SerializeField] private Vector2 groundCheckSize = new Vector2(0.49f, 0.03f);
 
-    private bool canJump;
+    //private bool canJump;
     private bool onGround;
     private bool facingRight;
+    //private bool isJumping;
 
     private float moveInput;
+    private float coyoteTimeCounter;
+    //private float lastJumpTime;
 
     public int playerHealth = 1;
 
     public float moveSpeed = 10f;
     public float jumpForce = 5f;
+    //public float rememberLastJumpTime = 0.2f;
+    public float coyoteTime = 0.2f;
 
     void Start()
     {
@@ -31,6 +36,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update() 
     {
+        coyoteTimeCounter -= Time.deltaTime;
+        //lastJumpTime -= Time.deltaTime;
         if(moveInput < 0 && !facingRight)
             {
                 Turn();
@@ -39,6 +46,7 @@ public class PlayerController : MonoBehaviour
             {
                 Turn();
             }
+        
     }
 
     private void FixedUpdate() 
@@ -49,13 +57,22 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(moveInput);
     }
 
+    private IEnumerator SetZeroCoyoteTimeCounter()
+    {
+        yield return new WaitForSeconds(0.1f);
+        coyoteTimeCounter = 0f;
+    }
+
     private void OnJump(InputValue value)
     {
-        if (value.isPressed && canJump)
+        if (value.isPressed && coyoteTimeCounter > 0)
         {
-        rb.velocity = new Vector2(rb.velocity.x, 0f); // Reset the y-force to prevent player stacking up jump momentum.
-        rb.AddForce(jumpForce * Vector2.up, ForceMode2D.Impulse);
-        }
+            StartCoroutine(SetZeroCoyoteTimeCounter());
+            //lastJumpTime = rememberLastJumpTime; time for when press the button before land on the ground.
+            //lastJumpTime = 0;
+            rb.velocity = new Vector2(rb.velocity.x, 0f);
+            rb.AddForce(jumpForce * Vector2.up, ForceMode2D.Impulse);
+        }  
     }
 
     private void OnMove(InputValue value)
@@ -74,12 +91,11 @@ public class PlayerController : MonoBehaviour
         onGround = Physics2D.OverlapBox(groundCheckPoint.position, groundCheckSize, 0, groundLayer);
         if (onGround)
         {
-            canJump = true;
+            coyoteTimeCounter = coyoteTime;
             anim.SetBool("isGrounded", true);
         }
         else
         {
-            canJump = false;
             anim.SetBool("isGrounded", false);
         }
     }
