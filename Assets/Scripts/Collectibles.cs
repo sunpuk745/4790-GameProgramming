@@ -99,6 +99,7 @@ public class Collectibles : MonoBehaviour
                 break;
                 case CollectibleType.DoubleJump:
                 collectibleCollider2D.enabled = false;
+                Debug.Log("Picked up Double Jump!");
                 player.canDoubleJump = true;
                 break;
                 default:
