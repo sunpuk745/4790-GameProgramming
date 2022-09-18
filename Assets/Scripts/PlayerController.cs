@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
     //private bool canJump;
     private bool onGround;
     private bool facingRight;
-    //private bool isJumping;
+    public bool canDoubleJump;
+    private bool isJumping;
 
     private float moveInput;
     private float coyoteTimeCounter;
@@ -72,7 +73,13 @@ public class PlayerController : MonoBehaviour
             //lastJumpTime = 0;
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(jumpForce * Vector2.up, ForceMode2D.Impulse);
-        }  
+        } 
+        if (value.isPressed && canDoubleJump && isJumping)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0f);
+            rb.AddForce(jumpForce * Vector2.up, ForceMode2D.Impulse);
+            canDoubleJump = false;
+        }
     }
 
     private void OnMove(InputValue value)
@@ -91,11 +98,13 @@ public class PlayerController : MonoBehaviour
         onGround = Physics2D.OverlapBox(groundCheckPoint.position, groundCheckSize, 0, groundLayer);
         if (onGround)
         {
+            isJumping = false;
             coyoteTimeCounter = coyoteTime;
             anim.SetBool("isGrounded", true);
         }
         else
         {
+            isJumping = true;
             anim.SetBool("isGrounded", false);
         }
     }

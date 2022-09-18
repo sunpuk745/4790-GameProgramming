@@ -169,7 +169,7 @@ Transform:
   - {fileID: 1950808764}
   - {fileID: 1887571004}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -584,8 +584,65 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &770589191
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.790148
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3856419
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079381, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_Name
+      value: Double Jump Crystal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
 --- !u!1 &1389236695
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,7 +2412,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1711357914
 GameObject:
@@ -2388,6 +2445,63 @@ Transform:
   m_Father: {fileID: 7417093106863741076}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1872547943
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079377, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475836331802079381, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
+      propertyPath: m_Name
+      value: Double Jump Crystal (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f0931fdd132172141b6ad4d5c51b40e9, type: 3}
 --- !u!1 &1887571003
 GameObject:
   m_ObjectHideFlags: 0
@@ -3167,7 +3281,7 @@ Transform:
   - {fileID: 2007501836}
   - {fileID: 1711357915}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7417093106863741077
 MonoBehaviour:
@@ -3218,9 +3332,11 @@ MonoBehaviour:
     m_Bits: 128
   groundCheckPoint: {fileID: 1711357915}
   groundCheckSize: {x: 0.45, y: 0.03}
+  canDoubleJump: 0
   playerHealth: 1
   moveSpeed: 5
-  jumpForce: 25
+  jumpForce: 20
+  coyoteTime: 0.15
 --- !u!1 &7417093106863741167
 GameObject:
   m_ObjectHideFlags: 0
@@ -3357,7 +3473,7 @@ Transform:
   m_Children:
   - {fileID: 7417093107615338260}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7417093107615338260
 Transform:

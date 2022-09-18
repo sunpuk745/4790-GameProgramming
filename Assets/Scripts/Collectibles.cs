@@ -11,6 +11,8 @@ public class Collectibles : MonoBehaviour
 
     private const string PlayerTag = "Player";
 
+    private PlayerController player;
+
     public SpriteRenderer collectableSprite;
     public SpriteRenderer playerSprite;
     private Collider2D collectibleCollider2D;
@@ -25,6 +27,7 @@ public class Collectibles : MonoBehaviour
         collectibleObject.GetOutlineSprite();
         //Debug.Log(collectibleObject.GetCollectibleType());
         //Debug.Log(collectibleObject.GetCollectible());
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
         playerSprite = GameObject.Find("Model").GetComponent<SpriteRenderer>();
         collectableSprite = GetComponent<SpriteRenderer>();
         collectibleCollider2D = GetComponent<Collider2D>();
@@ -96,6 +99,7 @@ public class Collectibles : MonoBehaviour
                 break;
                 case CollectibleType.DoubleJump:
                 collectibleCollider2D.enabled = false;
+                player.canDoubleJump = true;
                 break;
                 default:
                 break;
