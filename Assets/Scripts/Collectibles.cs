@@ -13,7 +13,7 @@ public class Collectibles : MonoBehaviour
 
     private PlayerController player;
 
-    public SpriteRenderer collectableSprite;
+    public SpriteRenderer collectibleSprite;
     public SpriteRenderer playerSprite;
     private Collider2D collectibleCollider2D;
     
@@ -29,7 +29,7 @@ public class Collectibles : MonoBehaviour
         //Debug.Log(collectibleObject.GetCollectible());
         player = GameObject.Find("Player").GetComponent<PlayerController>();
         playerSprite = GameObject.Find("Model").GetComponent<SpriteRenderer>();
-        collectableSprite = GetComponent<SpriteRenderer>();
+        collectibleSprite = GetComponent<SpriteRenderer>();
         collectibleCollider2D = GetComponent<Collider2D>();
 
         if (gameObject.activeSelf && collectibleObject.GetCollectibleType() == CollectibleType.Random)
@@ -41,18 +41,18 @@ public class Collectibles : MonoBehaviour
     public void EnableCollectible()
     {
         collectibleCollider2D.enabled = true;
-        collectableSprite.sprite = collectibleObject.GetSprite();
+        collectibleSprite.sprite = collectibleObject.GetSprite();
     }
 
     private IEnumerator RandomCrystal()
     {
-        collectableSprite.sprite = sprites[0];
+        collectibleSprite.sprite = sprites[0];
         yield return new WaitForSeconds(1f);
         if (collectibleObject.GetCollectibleType() == CollectibleType.Random)
         {
             randomNum = Random.Range (1, sprites.Length);
             //Debug.Log(randomNum);
-            collectableSprite.sprite = sprites[randomNum];
+            collectibleSprite.sprite = sprites[randomNum];
         }
         yield return new WaitForSeconds(1f);
         //Debug.Log("GameObject is Active!");
@@ -113,7 +113,7 @@ public class Collectibles : MonoBehaviour
             else
             {
                 //Debug.Log("Picked up Respawnable!");
-                collectableSprite.sprite = collectibleObject.GetOutlineSprite();
+                collectibleSprite.sprite = collectibleObject.GetOutlineSprite();
                 StartCoroutine(Respawn());
             }
         }
