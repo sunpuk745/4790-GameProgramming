@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheckPoint;
-	[SerializeField] private Vector2 groundCheckSize = new Vector2(0.49f, 0.03f);
+	[SerializeField] private Vector2 groundCheckSize = new Vector2(0.45f, 0.03f);
 
     //private bool canJump;
     private bool onGround;
