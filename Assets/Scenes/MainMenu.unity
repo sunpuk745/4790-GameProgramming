@@ -183,8 +183,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9f5c266b4737d7e448e5245a8421c234, type: 2}
-  m_sharedMaterial: {fileID: 7337880384405539636, guid: 9f5c266b4737d7e448e5245a8421c234, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6a1ee64947bbed44ea2bbd7e80ce041a, type: 2}
+  m_sharedMaterial: {fileID: 6297455659573188705, guid: 6a1ee64947bbed44ea2bbd7e80ce041a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -876,8 +876,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9f5c266b4737d7e448e5245a8421c234, type: 2}
-  m_sharedMaterial: {fileID: 7337880384405539636, guid: 9f5c266b4737d7e448e5245a8421c234, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6a1ee64947bbed44ea2bbd7e80ce041a, type: 2}
+  m_sharedMaterial: {fileID: 6297455659573188705, guid: 6a1ee64947bbed44ea2bbd7e80ce041a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1121,7 +1121,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 294}
-  m_SizeDelta: {x: 1069.57, y: 143.766}
+  m_SizeDelta: {x: 1271.018, y: 143.766}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2142134838
 MonoBehaviour:
@@ -1145,8 +1145,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: MY PLATFORMER GAME
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9f5c266b4737d7e448e5245a8421c234, type: 2}
-  m_sharedMaterial: {fileID: 7337880384405539636, guid: 9f5c266b4737d7e448e5245a8421c234, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6a1ee64947bbed44ea2bbd7e80ce041a, type: 2}
+  m_sharedMaterial: {fileID: 6297455659573188705, guid: 6a1ee64947bbed44ea2bbd7e80ce041a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

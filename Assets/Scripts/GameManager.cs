@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
     public void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        DOTween.KillAll();
     }
 
     public void NextLevel()
