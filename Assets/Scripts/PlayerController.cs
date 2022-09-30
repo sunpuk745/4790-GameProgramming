@@ -134,5 +134,14 @@ public class PlayerController : MonoBehaviour
             gameManager.EscapeToMainMenu();
         }
     }
+
+    public void TakeDamage()
+    {
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<GameManager>();
+        }
+        gameManager.playerHealth -= 1;
+    }
 }
 

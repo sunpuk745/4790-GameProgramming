@@ -20,8 +20,12 @@ public class Hazards : MonoBehaviour
     {
         if (other.CompareTag(PlayerTag))
         {
+            if (gameManager == null)
+            {
+                gameManager = FindObjectOfType<GameManager>();
+            }
             //Debug.Log(player.playerHealth);
-            gameManager.TakeDamage();
+            player.TakeDamage();
             gameManager.ProcessPlayerDeath();
         }
     }

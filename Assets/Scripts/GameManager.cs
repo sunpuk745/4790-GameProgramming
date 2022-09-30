@@ -9,6 +9,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public int sceneIndex;
+    public int currentScene;
     public int playerHealth = 3;
 
     public Image[] hearts;
@@ -17,12 +18,10 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI healthText;
 
-    [SerializeField]private PlayerController playerController;
-
     void Awake() 
     {
+        //print(playerHealth);
         var gameManagerNum = FindObjectsOfType<GameManager>().Length;
-
         if (gameManagerNum > 1)
         {
             Destroy(gameObject);
@@ -33,10 +32,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start() 
+    private void Start()
     {
+        currentScene = SceneManager.GetActiveScene().buildIndex;
         healthText = FindObjectOfType<TextMeshProUGUI>();
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     private void Update() 
@@ -51,11 +50,6 @@ public class GameManager : MonoBehaviour
         {
             hearts[i].sprite = fullHeart;
         }
-    }
-
-    public void TakeDamage()
-    {
-        playerHealth -= 1;
     }
 
     public void ProcessPlayerDeath()

@@ -224,6 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIndex: 0
+  currentScene: 0
   playerHealth: 3
   hearts:
   - {fileID: 8523631291823201067}
@@ -231,8 +232,7 @@ MonoBehaviour:
   - {fileID: 8523631291042093672}
   fullHeart: {fileID: 1104860609, guid: 2b57236cf24f3db4a80d8d21f9f2898b, type: 3}
   emptyHeart: {fileID: 1010891736, guid: 2b57236cf24f3db4a80d8d21f9f2898b, type: 3}
-  healthText: {fileID: 0}
-  playerController: {fileID: 0}
+  healthText: {fileID: 8523631291621023583}
 --- !u!1 &8523631291513553721
 GameObject:
   m_ObjectHideFlags: 0
