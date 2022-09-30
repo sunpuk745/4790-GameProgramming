@@ -9,7 +9,6 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public int sceneIndex;
-    public int currentScene;
     public int playerHealth = 3;
 
     public Image[] hearts;
@@ -34,7 +33,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        currentScene = SceneManager.GetActiveScene().buildIndex;
         healthText = FindObjectOfType<TextMeshProUGUI>();
     }
 

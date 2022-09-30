@@ -131,6 +131,11 @@ public class PlayerController : MonoBehaviour
     {
         if (value.isPressed)
         {
+            if (gameManager == null)
+            {
+                gameManager = FindObjectOfType<GameManager>();
+            }
+            gameManager.playerHealth = 3;
             gameManager.EscapeToMainMenu();
         }
     }
