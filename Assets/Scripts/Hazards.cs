@@ -21,11 +21,8 @@ public class Hazards : MonoBehaviour
         if (other.CompareTag(PlayerTag))
         {
             //Debug.Log(player.playerHealth);
-            player.TakeDamage();
-            if (player.playerHealth <= 0)
-            {
-                gameManager.ProcessPlayerDeath();
-            }
+            gameManager.TakeDamage();
+            gameManager.ProcessPlayerDeath();
         }
     }
 }

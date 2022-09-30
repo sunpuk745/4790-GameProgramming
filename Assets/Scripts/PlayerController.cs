@@ -6,10 +6,13 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Animator anim;
+    [SerializeField] private PlayerAudioController playerAudioController;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheckPoint;
 	[SerializeField] private Vector2 groundCheckSize = new Vector2(0.45f, 0.03f);
+
+    private GameManager gameManager;
 
     //private bool canJump;
     private bool onGround;
@@ -21,8 +24,6 @@ public class PlayerController : MonoBehaviour
     private float coyoteTimeCounter;
     //private float lastJumpTime;
 
-    public int playerHealth = 1;
-
     public float moveSpeed = 10f;
     public float jumpForce = 5f;
     //public float rememberLastJumpTime = 0.2f;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         rb = GetComponent<Rigidbody2D>();
         //GetComponent<Collider2D>();
         //Kittipat Sangka 633040479-0
@@ -72,13 +74,15 @@ public class PlayerController : MonoBehaviour
             //lastJumpTime = rememberLastJumpTime; time for when press the button before land on the ground.
             //lastJumpTime = 0;
             rb.velocity = new Vector2(rb.velocity.x, 0f);
-            rb.AddForce(jumpForce * Vector2.up, ForceMode2D.Impulse);
+            rb.AddForce(jumpForce * Vector2.up, ForceMode2D.Impulse); 
+            playerAudioController.PlaySound();
         } 
         if (value.isPressed && canDoubleJump && isJumping)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(jumpForce * Vector2.up, ForceMode2D.Impulse);
             canDoubleJump = false;
+            playerAudioController.PlaySound();
         }
     }
 
@@ -123,10 +127,12 @@ public class PlayerController : MonoBehaviour
 		facingRight = !facingRight;
 	}
 
-    public void TakeDamage()
+    private void OnQuit(InputValue value)
     {
-        playerHealth -= 1;
-        //Debug.Log(playerHealth);
+        if (value.isPressed)
+        {
+            gameManager.EscapeToMainMenu();
+        }
     }
 }
 

@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Collectibles : MonoBehaviour
 {
     [SerializeField] private SOCollectibles collectibleObject;
+    [SerializeField] private Transform collectibleTransform;
 
     private int randomNum;
-    [SerializeField]private float respawnTimer = 4f;
+    [SerializeField] private float respawnTimer = 4f;
+    [SerializeField] private float moveEndPosition = 0.3f;
 
     private const string PlayerTag = "Player";
 
@@ -21,6 +24,7 @@ public class Collectibles : MonoBehaviour
     
     private void Start() 
     {
+        collectibleTransform = GetComponent<Transform>();
         collectibleObject.GetCollectibleType();
         collectibleObject.GetRespawnable();
         collectibleObject.GetSprite();
@@ -36,6 +40,8 @@ public class Collectibles : MonoBehaviour
         {
             StartCoroutine(RandomCrystal());
         }
+
+        transform.DOMoveY(collectibleTransform.position.y + moveEndPosition, 5f).SetEase(Ease.InOutQuad).SetLoops(-1, loopType:LoopType.Yoyo);
     }
 
     public void EnableCollectible()
