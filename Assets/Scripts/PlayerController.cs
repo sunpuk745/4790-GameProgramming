@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private bool facingRight;
     public bool canDoubleJump;
     private bool isJumping;
+    private bool deathSoundIsPlaying = false;
 
     private float moveInput;
     private float coyoteTimeCounter;
@@ -75,14 +76,14 @@ public class PlayerController : MonoBehaviour
             //lastJumpTime = 0;
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(jumpForce * Vector2.up, ForceMode2D.Impulse); 
-            playerAudioController.PlaySound();
+            playerAudioController.PlayJumpSound();
         } 
         if (value.isPressed && canDoubleJump && isJumping)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(jumpForce * Vector2.up, ForceMode2D.Impulse);
             canDoubleJump = false;
-            playerAudioController.PlaySound();
+            playerAudioController.PlayJumpSound();
         }
     }
 
@@ -140,13 +141,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void TakeDamage()
+    private IEnumerator FinishDeathSoundBeforeDeath()
     {
+        deathSoundIsPlaying = true;
+        playerAudioController.PlayDeathSound();
+        yield return new WaitForSeconds(0.1f);
         if (gameManager == null)
         {
             gameManager = FindObjectOfType<GameManager>();
         }
         gameManager.playerHealth -= 1;
+        gameManager.ProcessPlayerDeath();
+        deathSoundIsPlaying = false;
+    }
+
+    public void TakeDamage()
+    {
+        StartCoroutine(FinishDeathSoundBeforeDeath());
+    }
+    
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Ground" && !deathSoundIsPlaying)
+        {
+            playerAudioController.PlayFallOnImpact();
+        }
     }
 }
 

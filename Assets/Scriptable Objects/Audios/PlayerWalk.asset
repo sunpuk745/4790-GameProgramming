@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08173e3b3ef1faf41b99715465ab853b, type: 3}
+  m_Name: PlayerWalk
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 9d770c4225a1fa84282346426562af87, type: 3}
+  - {fileID: 8300000, guid: 8c81c9403452be240a8a8cc8333f629c, type: 3}
+  - {fileID: 8300000, guid: 4857cd3ead39d0d459ad2e3e507a217e, type: 3}
+  - {fileID: 8300000, guid: b0b3b64dd53cb844c9e24df729781031, type: 3}
+  - {fileID: 8300000, guid: 8bf10075b0d800c4b8f27522ebae6e10, type: 3}

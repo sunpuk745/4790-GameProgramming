@@ -5,6 +5,9 @@ using UnityEngine;
 public class LevelDoor : MonoBehaviour
 {
     private GameManager gameManager;
+    [SerializeField] private LevelDoorAudioController levelDoorAudioController;
+
+    private bool winningSoundIsPlaying = false;
 
     private const string PlayerTag = "Player";
 
@@ -14,11 +17,24 @@ public class LevelDoor : MonoBehaviour
         //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();    
     }
 
-    private void OnTriggerEnter2D(Collider2D other) 
+    private IEnumerator FinishWinningSoundBeforeChangeScene()
     {
-        if (other.CompareTag(PlayerTag))
+        winningSoundIsPlaying = true;
+        levelDoorAudioController.PlayWinningSound();
+        yield return new WaitForSeconds(0.6f);
+        if (gameManager == null)
+            {
+                gameManager = FindObjectOfType<GameManager>();
+            }
+        gameManager.NextLevel();
+        winningSoundIsPlaying = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag(PlayerTag) && !winningSoundIsPlaying)
         {
-            gameManager.NextLevel();
+            StartCoroutine(FinishWinningSoundBeforeChangeScene());
         }
     }
 }

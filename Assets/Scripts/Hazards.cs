@@ -26,7 +26,6 @@ public class Hazards : MonoBehaviour
             }
             //Debug.Log(player.playerHealth);
             player.TakeDamage();
-            gameManager.ProcessPlayerDeath();
         }
     }
 }

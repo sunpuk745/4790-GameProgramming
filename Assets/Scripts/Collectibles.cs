@@ -15,6 +15,7 @@ public class Collectibles : MonoBehaviour
     private const string PlayerTag = "Player";
 
     private PlayerController player;
+    [SerializeField] private CollectibleAudioController collectibleAudioController;
 
     public SpriteRenderer collectibleSprite;
     public SpriteRenderer playerSprite;
@@ -24,6 +25,7 @@ public class Collectibles : MonoBehaviour
     
     private void Start() 
     {
+        collectibleAudioController = gameObject.GetComponent<CollectibleAudioController>();
         collectibleTransform = GetComponent<Transform>();
         collectibleObject.GetCollectibleType();
         collectibleObject.GetRespawnable();
@@ -69,6 +71,7 @@ public class Collectibles : MonoBehaviour
     {
         yield return new WaitForSeconds(respawnTimer);
         EnableCollectible();
+        collectibleAudioController.PlayRespawnedSound();
     }
 
     private void OnTriggerEnter2D(Collider2D other) 
@@ -122,6 +125,7 @@ public class Collectibles : MonoBehaviour
                 collectibleSprite.sprite = collectibleObject.GetOutlineSprite();
                 StartCoroutine(Respawn());
             }
+            collectibleAudioController.PlayCollectedSound();
         }
     }
 }
