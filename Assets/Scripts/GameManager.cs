@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
 
     void Awake() 
     {
-        audioSource.DOFade(0.1f, 3f).SetEase(Ease.InSine);
         //print(playerHealth);
         var gameManagerNum = FindObjectsOfType<GameManager>().Length;
         if (gameManagerNum > 1)
@@ -29,12 +28,14 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            audioSource.DOFade(0.1f, 3f).SetEase(Ease.InSine);
             DontDestroyOnLoad(gameObject);
         }
     }
 
     private void Start()
     {
+        //StartCoroutine(DelayDOTweenKill());
         healthText = FindObjectOfType<TextMeshProUGUI>();
     }
 
@@ -52,6 +53,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private IEnumerator DelayDOTweenKill()
+    {
+        yield return new WaitForSeconds(3f);
+        DOTween.Kill(audioSource);
+    }
+
     public void ProcessPlayerDeath()
     {
         if (playerHealth > 0)
@@ -67,8 +74,8 @@ public class GameManager : MonoBehaviour
     public void EscapeToMainMenu()
     {
         SceneManager.LoadScene(0);
-        Destroy(gameObject);
         DOTween.KillAll();
+        Destroy(gameObject);
     }
 
     public void RestartScene()

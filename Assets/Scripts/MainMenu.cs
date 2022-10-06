@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
     {
         audioSource.DOFade(0f, 3f);
         yield return new WaitForSeconds(3f);
+        DOTween.KillAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
