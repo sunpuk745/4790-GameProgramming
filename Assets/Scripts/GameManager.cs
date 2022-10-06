@@ -16,9 +16,11 @@ public class GameManager : MonoBehaviour
     public Sprite emptyHeart;
 
     public TextMeshProUGUI healthText;
+    [SerializeField] private AudioSource audioSource;
 
     void Awake() 
     {
+        audioSource.DOFade(0.1f, 3f).SetEase(Ease.InSine);
         //print(playerHealth);
         var gameManagerNum = FindObjectsOfType<GameManager>().Length;
         if (gameManagerNum > 1)
