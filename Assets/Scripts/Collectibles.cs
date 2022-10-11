@@ -7,6 +7,8 @@ public class Collectibles : MonoBehaviour
 {
     [SerializeField] private SOCollectibles collectibleObject;
     [SerializeField] private Transform collectibleTransform;
+    [SerializeField] private ParticleSystem collectedEffect;
+    [SerializeField] private ParticleSystem respawnEffect;
 
     private int randomNum;
     [SerializeField] private float respawnTimer = 4f;
@@ -70,6 +72,9 @@ public class Collectibles : MonoBehaviour
     private IEnumerator Respawn()
     {
         yield return new WaitForSeconds(respawnTimer);
+        respawnEffect.gameObject.SetActive(true);
+        respawnEffect.Stop();
+        respawnEffect.Play();
         EnableCollectible();
         collectibleAudioController.PlayRespawnedSound();
     }
@@ -125,6 +130,9 @@ public class Collectibles : MonoBehaviour
                 collectibleSprite.sprite = collectibleObject.GetOutlineSprite();
                 StartCoroutine(Respawn());
             }
+            collectedEffect.gameObject.SetActive(true);
+            collectedEffect.Stop();
+            collectedEffect.Play();
             collectibleAudioController.PlayCollectedSound();
         }
     }

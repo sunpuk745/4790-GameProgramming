@@ -6,6 +6,7 @@ public class LevelDoor : MonoBehaviour
 {
     private GameManager gameManager;
     [SerializeField] private LevelDoorAudioController levelDoorAudioController;
+    [SerializeField] private ParticleSystem winEffect;
 
     private bool winningSoundIsPlaying = false;
 
@@ -34,6 +35,9 @@ public class LevelDoor : MonoBehaviour
     {
         if (other.CompareTag(PlayerTag) && !winningSoundIsPlaying)
         {
+            winEffect.gameObject.SetActive(true);
+            winEffect.Stop();
+            winEffect.Play();
             StartCoroutine(FinishWinningSoundBeforeChangeScene());
         }
     }

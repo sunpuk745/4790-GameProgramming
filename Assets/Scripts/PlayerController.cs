@@ -11,15 +11,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheckPoint;
 	[SerializeField] private Vector2 groundCheckSize = new Vector2(0.45f, 0.03f);
+    [SerializeField] private ParticleSystem dustTrail;
+    [SerializeField] private ParticleSystem fallOnImpactEffect;
+    [SerializeField] private ParticleSystem deathEffect;
+    private ParticleSystem.EmissionModule dustEmission;
 
     private GameManager gameManager;
 
     //private bool canJump;
     private bool onGround;
+    private bool wasOnGround;
     private bool facingRight;
     public bool canDoubleJump;
     private bool isJumping;
-    private bool deathSoundIsPlaying = false;
+    public bool deathSoundIsPlaying = false;
 
     private float moveInput;
     private float coyoteTimeCounter;
@@ -34,6 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         rb = GetComponent<Rigidbody2D>();
+        dustEmission = dustTrail.emission;
         //GetComponent<Collider2D>();
         //Kittipat Sangka 633040479-0
     }
@@ -50,7 +56,8 @@ public class PlayerController : MonoBehaviour
             {
                 Turn();
             }
-        
+        PlayDustEffect();
+        PlayFallOnImpactEffect();
     }
 
     private void FixedUpdate() 
@@ -65,6 +72,30 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         coyoteTimeCounter = 0f;
+    }
+
+    private void PlayDustEffect()
+    {
+        if (moveInput != 0 && onGround)
+            {
+                dustEmission.rateOverTime = 35f;
+            }
+        else
+            {
+                dustEmission.rateOverTime = 0f;
+            }
+    }
+
+    private void PlayFallOnImpactEffect()
+    {
+        if (!wasOnGround && onGround)
+            {
+                fallOnImpactEffect.gameObject.SetActive(true);
+                fallOnImpactEffect.Stop();
+                fallOnImpactEffect.transform.position = dustTrail.transform.position;
+                fallOnImpactEffect.Play();
+            }
+        wasOnGround = onGround;
     }
 
     private void OnJump(InputValue value)
@@ -151,21 +182,18 @@ public class PlayerController : MonoBehaviour
             gameManager = FindObjectOfType<GameManager>();
         }
         gameManager.playerHealth -= 1;
-        gameManager.ProcessPlayerDeath();
         deathSoundIsPlaying = false;
+        yield return new WaitForSeconds(0.7f);
+        gameManager.ProcessPlayerDeath();
     }
 
     public void TakeDamage()
     {
+        deathEffect.gameObject.SetActive(true);
+        deathEffect.Stop();
+        deathEffect.transform.position = dustTrail.transform.position;
+        deathEffect.Play();
         StartCoroutine(FinishDeathSoundBeforeDeath());
-    }
-    
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Ground" && !deathSoundIsPlaying)
-        {
-            playerAudioController.PlayFallOnImpact();
-        }
     }
 }
 
